@@ -13,6 +13,7 @@ namespace MvcSample.Web
 
         public IActionResult Index()
         {
+            ViewBag.GenerationDate = _cervezaRepository.GenerationDate;
             return View(_cervezaRepository.GetCervezas());
         }
     }

@@ -7,5 +7,7 @@ namespace MvcSample.Web
     public interface ICervezaRepository
     {
 		List<Cerveza> GetCervezas();
+		
+		DateTime GenerationDate { get; set; }
     }
 }
