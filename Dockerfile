@@ -5,8 +5,6 @@ ADD . /app/
 WORKDIR /app
 # fetch the NuGet dependencies for our application
 RUN kpm restore
-# set the working directory for subsequent commands
-WORKDIR /app/src/helloworldweb
 # expose TCP port 5000 from container
 EXPOSE 5004
 # Configure the image as an executable
