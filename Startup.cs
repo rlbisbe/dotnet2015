@@ -9,13 +9,7 @@ namespace MvcSample
         public void Configure(IApplicationBuilder app)
         {
             app.UseErrorPage();
-            
-            app.UseServices(services =>
-            {
-                services.AddTransient<ICervezaRepository, CervezaRepository>();
-                services.AddMvc();
-            });
-
+          
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -24,6 +18,12 @@ namespace MvcSample
                   defaults: new { controller = "Home", action = "Index" });
             });
 
+        }
+
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddTransient<ICervezaRepository, CervezaRepository>();
+            services.AddMvc();
         }
     }
 }
