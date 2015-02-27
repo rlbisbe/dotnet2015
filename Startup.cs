@@ -1,0 +1,29 @@
+using Microsoft.AspNet.Builder;
+using Microsoft.Framework.DependencyInjection;
+using MvcSample.Web;
+
+namespace MvcSample
+{
+    public class Startup
+    {
+        public void Configure(IApplicationBuilder app)
+        {
+            app.UseErrorPage();
+            
+            app.UseServices(services =>
+            {
+                services.AddTransient<ICervezaRepository, CervezaRepository>();
+                services.AddMvc();
+            });
+
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                  name: "default",
+                  template: "{controller}/{action}/{id?}",
+                  defaults: new { controller = "Home", action = "Index" });
+            });
+
+        }
+    }
+}

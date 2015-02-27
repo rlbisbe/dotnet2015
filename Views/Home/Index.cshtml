@@ -1,0 +1,19 @@
+﻿@using MvcSample.Web.Models
+@using System.Collections.Generic
+@model List<Cerveza>
+@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>DotNetConference Spain</h1>
+    <p class="lead">DotNetConference Spain es el evento del año.</p>
+    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+</div>
+<div class="row">
+<h2>Lista de cervezas</h2>
+@foreach(var item in @Model) {
+    <h3>@item.Nombre <small>(@item.Percent)</small></h3>
+}
+</div>
