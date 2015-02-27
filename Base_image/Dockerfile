@@ -7,9 +7,9 @@ FROM mono:3.10
 RUN apt-get -qq update && apt-get -qqy install unzip
 # Install ASP.NET vNext and latest K Runtime Environment (KRE)
 RUN curl -s https://raw.githubusercontent.com/aspnet/Home/master/kvminstall.sh | sh
-RUN bash -c "source /root/.kre/kvm/kvm.sh \
+RUN bash -c "source /root/.k/kvm/kvm.sh \
       && kvm upgrade \
-      && kvm alias default | xargs -i ln -s /root/.kre/packages/{} /root/.kre/packages/default"
+      && kvm alias default | xargs -i ln -s /root/.k/packages/{} /root/.k/packages/default"
 # "ENV" sets an environment variable which will be set
 # whenever the container is started
-ENV PATH $PATH:/root/.kre/packages/default/bin
+ENV PATH $PATH:/root/.k/packages/default/bin
